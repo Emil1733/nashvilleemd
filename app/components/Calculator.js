@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Calculator as CalcIcon, Loader2, ArrowRight, ShieldCheck, AlertCircle, CheckCircle } from 'lucide-react';
 
-export default function Calculator({ variant = 'light' }) {
+export default function Calculator({ variant = 'light', source = 'nashville_calculator' }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     poolType: 'Concrete',
@@ -49,7 +49,7 @@ export default function Calculator({ variant = 'light' }) {
       pool_type: formData.poolType,
       pool_size: formData.size,
       estimated_price_range: `$${quote.full.toLocaleString()} - $${quote.max.toLocaleString()}`,
-      source_page: 'nashville_calculator',
+      source_page: source,
       created_at: new Date().toISOString()
     };
 

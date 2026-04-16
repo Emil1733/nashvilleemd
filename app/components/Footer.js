@@ -18,11 +18,11 @@ export default function Footer() {
         <div className="footer-col">
           <h4 style={{marginBottom: '25px', fontSize: '1rem', color: 'var(--accent)'}}>Service Areas</h4>
           <ul style={{fontSize: '0.9rem', color: '#adb5bd', listStyle: 'none', padding: 0}}>
-            <li style={{marginBottom: '10px'}}>• Brentwood & Franklin</li>
-            <li style={{marginBottom: '10px'}}>• Belle Meade & Oak Hill</li>
-            <li style={{marginBottom: '10px'}}>• East Nashville & Sylvan Park</li>
-            <li style={{marginBottom: '10px'}}>• Green Hills & Forest Hills</li>
-            <li style={{marginBottom: '10px'}}>• Mount Juliet & Lebanon</li>
+            <li style={{marginBottom: '10px'}}>• <Link href="/franklin" style={{color: '#adb5bd'}}>Franklin & Brentwood</Link></li>
+            <li style={{marginBottom: '10px'}}>• <Link href="/belle-meade" style={{color: '#adb5bd'}}>Belle Meade & Forest Hills</Link></li>
+            <li style={{marginBottom: '10px'}}>• <Link href="/green-hills-oak-hill" style={{color: '#adb5bd'}}>Green Hills & Oak Hill</Link></li>
+            <li style={{marginBottom: '10px'}}>• <Link href="/hendersonville-gallatin" style={{color: '#adb5bd'}}>Hendersonville & Gallatin</Link></li>
+            <li style={{marginBottom: '10px'}}>• <Link href="/nashville-drainage" style={{color: '#adb5bd'}}>Stormwater Engineering</Link></li>
           </ul>
         </div>
 

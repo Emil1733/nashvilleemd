@@ -40,6 +40,8 @@ export default function Navbar() {
                 <div className="dropdown">
                    <a href="/limestone-excavation">Limestone Excavation</a>
                    <a href="/engineered-backfill">Engineered Backfill</a>
+                   <a href="/nashville-drainage">Stormwater & Drainage</a>
+                   <a href="/outdoor-living-prep">Outdoor Living Prep</a>
                    <a href="/pool-removal-permits">Permits & Regulations</a>
                 </div>
               </li>
@@ -48,7 +50,9 @@ export default function Navbar() {
                 <div className="dropdown">
                    <a href="/belle-meade">Belle Meade</a>
                    <a href="/brentwood">Brentwood</a>
-                   <a href="/green-hills-oak-hill">Green Hills & Oak Hill</a>
+                   <a href="/franklin">Franklin</a>
+                   <a href="/hendersonville-gallatin">Hendersonville</a>
+                   <a href="/green-hills-oak-hill">Green Hills</a>
                 </div>
               </li>
               <li><a href="/cost" style={{color: 'white', fontWeight: 600}}>Cost Guide</a></li>
