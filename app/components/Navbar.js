@@ -35,7 +35,22 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="desktop-nav">
             <ul style={{display: 'flex', listStyle: 'none', gap: '30px', alignItems: 'center'}}>
-              <li><a href="/services" style={{color: 'white', fontWeight: 600}}>Services</a></li>
+              <li className="has-dropdown">
+                <a href="/services" style={{color: 'white', fontWeight: 600}}>Services</a>
+                <div className="dropdown">
+                   <a href="/limestone-excavation">Limestone Excavation</a>
+                   <a href="/engineered-backfill">Engineered Backfill</a>
+                   <a href="/pool-removal-permits">Permits & Regulations</a>
+                </div>
+              </li>
+              <li className="has-dropdown">
+                <a href="#" style={{color: 'white', fontWeight: 600}}>Service Areas</a>
+                <div className="dropdown">
+                   <a href="/belle-meade">Belle Meade</a>
+                   <a href="/brentwood">Brentwood</a>
+                   <a href="/green-hills-oak-hill">Green Hills & Oak Hill</a>
+                </div>
+              </li>
               <li><a href="/cost" style={{color: 'white', fontWeight: 600}}>Cost Guide</a></li>
               <li><a href="/blog/guide" style={{color: 'white', fontWeight: 600}}>Authority Guide</a></li>
               <li><a href="/about" style={{color: 'white', fontWeight: 600}}>About</a></li>
@@ -106,6 +121,21 @@ export default function Navbar() {
       </div>
 
       <style jsx>{`
+        .has-dropdown { position: relative; padding: 10px 0; }
+        .dropdown { 
+          position: absolute; top: 100%; left: 0; background: rgba(255,255,255,0.95); 
+          backdrop-filter: blur(10px); min-width: 200px; padding: 15px 0; 
+          border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+          display: none; flex-direction: column; z-index: 100;
+          border: 1px solid rgba(0,0,0,0.05);
+        }
+        .has-dropdown:hover .dropdown { display: flex; }
+        .dropdown a { 
+          padding: 10px 20px; color: var(--dark); font-size: 0.9rem; 
+          font-weight: 500; transition: 0.2s;
+        }
+        .dropdown a:hover { color: var(--primary); background: rgba(0,0,0,0.02); padding-left: 25px; }
+
         @media (max-width: 1024px) {
           .desktop-nav { display: none !important; }
           .hamburger-btn { display: block !important; }
