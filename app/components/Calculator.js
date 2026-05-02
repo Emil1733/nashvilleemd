@@ -12,7 +12,8 @@ export default function Calculator({ variant = 'light', source = 'nashville_calc
     slope: 'Flat',
     name: '',
     phone: '',
-    email: ''
+    email: '',
+    hp_verify: '' // HoneyPot field
   });
   const [quote, setQuote] = useState(null);
   const [calculating, setCalculating] = useState(false);
@@ -41,6 +42,12 @@ export default function Calculator({ variant = 'light', source = 'nashville_calc
 
   const handleLeadSubmit = async (e) => {
     e.preventDefault();
+    if (formData.hp_verify) {
+      console.warn("Spam detected.");
+      setLeadSuccess(true); // Silent discard
+      setSubmitting(false);
+      return;
+    }
     setSubmitting(true);
 
     const leadData = {
@@ -54,7 +61,7 @@ export default function Calculator({ variant = 'light', source = 'nashville_calc
     };
 
     const { error } = await supabase
-      .from('emd_leads_atlanta')
+      .from('emd_leads_nashville')
       .insert([leadData]);
 
     if (!error) {
@@ -196,7 +203,17 @@ export default function Calculator({ variant = 'light', source = 'nashville_calc
                       onChange={e => setFormData({...formData, phone: e.target.value})}
                       style={{width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', background: isDark ? 'rgba(0,0,0,0.2)' : 'white', color: isDark ? 'white' : 'inherit'}}
                     />
-                  </div>
+                     <div className="field" style={{display: 'none'}}>
+                     <input 
+                       type="text" 
+                       name="hp_verify"
+                       value={formData.hp_verify} 
+                       onChange={e => setFormData({...formData, hp_verify: e.target.value})}
+                       tabIndex="-1"
+                       autoComplete="off"
+                     />
+                   </div>
+                </div>
                </div>
                <button type="submit" className="btn btn-accent btn-xl w-full" style={{marginTop: '15px'}} disabled={submitting}>
                   {submitting ? <Loader2 className="spin" size={18} /> : 'Submit for Assessment'}

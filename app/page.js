@@ -186,6 +186,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* RECENT PROJECTS / CRAWL FORCE SECTION */}
+      <section className="recent-projects bg-light">
+        <div className="container">
+          <div className="section-header" style={{ marginBottom: '50px' }}>
+            <h2 className="section-title">Nashville Field Operations: <span className="text-grad">May 2026 Update</span></h2>
+            <p className="large-p">Real-time status of current pool restoration and geotechnical projects across Middle Tennessee.</p>
+          </div>
+          <div className="projects-grid">
+            <div className="project-card">
+              <div className="project-image">
+                <img src="/franklin_project_may_2026_1777734875841.png" alt="Franklin TN Pool Removal Project May 2026" />
+                <div className="project-badge">Franklin, TN</div>
+              </div>
+              <div className="project-content">
+                <span className="project-date">Updated: May 1, 2026</span>
+                <h3>Blue Limestone Fracturing</h3>
+                <p>Mechanical rock-breaking in progress to enable vertical drainage for a structural <Link href="/franklin">pool removal in Franklin</Link>.</p>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="project-image">
+                <img src="/belle_meade_compaction_may_2026_1777734895765.png" alt="Belle Meade Pool Compaction Project May 2026" />
+                <div className="project-badge">Belle Meade</div>
+              </div>
+              <div className="project-content">
+                <span className="project-date">Updated: April 28, 2026</span>
+                <h3>Engineered Backfill Protocol</h3>
+                <p>Applying 8-inch lift compaction with 5-ton vibratory rollers for a <Link href="/belle-meade">luxury yard restoration in Belle Meade</Link>.</p>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="project-image">
+                <img src="/nashville_limestone_breaker_may_2026_1777734914226.png" alt="Nashville Bedrock Processing May 2026" />
+                <div className="project-badge">West Nashville</div>
+              </div>
+              <div className="project-content">
+                <span className="project-date">Updated: April 25, 2026</span>
+                <h3>Bedrock Shelf Penetration</h3>
+                <p>Strategic fracturing of the 12-inch <Link href="/limestone-excavation">limestone shelf</Link> to prevent sub-surface water pooling.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* COST QUICK SUMMARY (RESTORED VERSION) */}
       <section className="quick-cost-summary bg-white">
         <div className="container">
@@ -341,8 +388,20 @@ export default function Home() {
         .stars { color: var(--accent); margin-bottom: 15px; font-size: 0.9rem; }
         .author { margin-top: 20px; font-weight: 800; font-size: 0.85rem; color: var(--primary); }
 
+        /* RECENT PROJECTS */
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .project-card { background: white; border-radius: 24px; overflow: hidden; border: 1px solid #eee; transition: var(--transition); }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .project-image { position: relative; height: 240px; overflow: hidden; }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; }
+        .project-badge { position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,0.9); padding: 6px 15px; border-radius: 12px; font-weight: 800; font-size: 0.7rem; color: var(--primary); backdrop-filter: blur(10px); }
+        .project-content { padding: 30px; }
+        .project-date { font-size: 0.7rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
+        .project-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+        .project-card p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; }
+
         @media (max-width: 1024px) {
-           .process-grid-main, .water-actions-grid, .cost-visual-grid, .neighborhood-grid-4, .testimonial-grid { 
+           .process-grid-main, .water-actions-grid, .cost-visual-grid, .neighborhood-grid-4, .testimonial-grid, .projects-grid { 
              grid-template-columns: 1fr !important; 
              gap: 20px !important; 
            }

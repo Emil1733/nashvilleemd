@@ -13,9 +13,6 @@ export const metadata = {
   description: 'Expert concrete and fiberglass pool removal in Nashville. Specialists in limestone excavation, slope stabilization, and drainage-stable backfill. Most projects 3-5 days.',
   keywords: 'pool removal Nashville, Nashville pool demolition, pool fill-in Nashville, rock excavation Nashville, pool drainage Nashville',
   metadataBase: new URL('https://nashvillepoolremoval.com'),
-  alternates: {
-    canonical: '/',
-  },
   icons: {
     icon: '/favicon.png',
   },
@@ -27,7 +24,7 @@ export default function RootLayout({ children }) {
     "@type": "LocalBusiness",
     "name": "Nashville Pool Professionals",
     "image": "https://nashvillepoolremoval.com/nashville_reclaimed.png",
-    "@id": "https://nashvillepoolremoval.com",
+    "@id": "https://nashvillepoolremoval.com/#organization",
     "url": "https://nashvillepoolremoval.com",
     "telephone": "+16153983421",
     "address": {

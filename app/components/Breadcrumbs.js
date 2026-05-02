@@ -9,8 +9,33 @@ export default function Breadcrumbs() {
 
   const segments = pathname.split('/').filter((s) => s);
   
+  // SEO: Generate BreadcrumbList Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nashvillepoolremoval.com"
+      },
+      ...segments.map((segment, index) => ({
+        "@type": "ListItem",
+        "position": index + 2,
+        "name": segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
+        "item": `https://nashvillepoolremoval.com/${segments.slice(0, index + 1).join('/')}`
+      }))
+    ]
+  };
+
   return (
-    <nav className="breadcrumbs container" aria-label="Breadcrumb" style={{paddingTop: '20px', paddingBottom: '10px', fontSize: '0.85rem'}}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <nav className="breadcrumbs container" aria-label="Breadcrumb" style={{paddingTop: '20px', paddingBottom: '10px', fontSize: '0.85rem'}}>
       <ol style={{display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center', gap: '8px', color: 'var(--secondary)'}}>
         <li>
           <Link href="/" style={{display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--primary)', fontWeight: 600}}>
@@ -38,6 +63,7 @@ export default function Breadcrumbs() {
         .breadcrumbs { opacity: 0.8; }
         .breadcrumbs a:hover { color: var(--accent) !important; text-decoration: underline; }
       `}</style>
-    </nav>
+      </nav>
+    </>
   );
 }
